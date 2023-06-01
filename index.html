@@ -331,10 +331,11 @@
         // EDIT DATA.
         this.Update = function (oButton) {
             var activeRow = oButton.parentNode.parentNode.rowIndex;
+            console.log(activeRow)
             var tab = document.getElementById('booksTable').rows[activeRow];
 
             // SHOW A DROPDOWN LIST WITH A LIST OF CATEGORIES.
-            for (i = 1; i < 6; i++) {
+            for (i = 1; i < 8; i++) {
                 if (i == 2) {
                     var td = tab.getElementsByTagName("td")[i];
                     var ele = document.createElement('select');      // DROPDOWN LIST.
@@ -368,10 +369,10 @@
                 }
             }
 
-            var lblCancel = document.getElementById('lbl' + (activeRow - 1));
+            var lblCancel = document.getElementById('lbl' + (activeRow - 2));
             lblCancel.setAttribute('style', 'cursor:pointer; display:block; width:20px; float:left; position: absolute;');
 
-            var btSave = document.getElementById('Save' + (activeRow - 1));
+            var btSave = document.getElementById('Save' + (activeRow - 2));
             btSave.setAttribute('style', 'display:block; margin-left:30px; float:left; background-color:#2DBF64;');
 
             // HIDE THIS BUTTON.
@@ -396,6 +397,7 @@
             // UPDATE myBooks ARRAY WITH VALUES.
             for (i = 1; i < this.col.length; i++) {
                 var td = tab.getElementsByTagName("td")[i];
+                console.log(td.childNodes[0].value)
                 if (td.childNodes[0].getAttribute('type') == 'text' || td.childNodes[0].tagName == 'SELECT' || td.childNodes[0].getAttribute('type') == 'date') {  // CHECK IF ELEMENT IS A TEXTBOX OR SELECT.
                     this.myBooks[(activeRow - 1)][this.col[i]] = td.childNodes[0].value;      // SAVE THE VALUE.
                 }
