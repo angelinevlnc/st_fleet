@@ -399,7 +399,7 @@
                 var td = tab.getElementsByTagName("td")[i];
                 console.log(td.childNodes[0].value)
                 if (td.childNodes[0].getAttribute('type') == 'text' || td.childNodes[0].tagName == 'SELECT' || td.childNodes[0].getAttribute('type') == 'date') {  // CHECK IF ELEMENT IS A TEXTBOX OR SELECT.
-                    this.myBooks[(activeRow - 1)][this.col[i]] = td.childNodes[0].value;      // SAVE THE VALUE.
+                    this.myBooks[(activeRow - 2)][this.col[i]] = td.childNodes[0].value;      // SAVE THE VALUE.
                 }
             }
             this.createTable();     // REFRESH THE TABLE.
